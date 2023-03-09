@@ -1,7 +1,14 @@
 # 202130226 이진아
 ## React 강의 전용 레포지터리
 ***
+> **0302(목) 1주차 수업** <br>
+
+✔︎ github 맛보기 <br>
+✔︎ 깃허브 회원가입, Desktop과 깃허브 연동, 임시 Repository생성
+
+***
 > **0309(목) 2주차 수업** <br>
+
 ✔︎ github에서 repository를 생성 -> 23-React1 <br>
 ✔︎ LICENSE 파일, .gitignore파일 추가 <br>
 ✔︎ html, css, 자바스크립트란 무엇인가~
