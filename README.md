@@ -4,4 +4,6 @@
 > **0309(목) 2주차 수업** <br>
 ✔︎ github에서 repository를 생성 -> 23-React1 <br>
 ✔︎ LICENSE 파일, .gitignore파일 추가 <br>
-
+✔︎ html, css, 자바스크립트란 무엇인가~
++ HTML(웹사이트 뼈대를 구성하는 태그들)
++ 자바스크립트 (var, let, const...)
