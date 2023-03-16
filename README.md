@@ -45,8 +45,9 @@
 > ✔ **npx create-react-app 프로젝트명** 으로 리액트 설치  
 > + 터미널에 npx create-react-app myapp 로 myapp 설치
 > + cd 명령어로 폴더에 들어간 후 npm start
-> 
-
+><br>
+> ![텍스트](/image/npmstart.png)
+>
 
 <br>
 
