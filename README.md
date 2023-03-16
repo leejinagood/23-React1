@@ -1,6 +1,5 @@
-# 👻 202130226 이진아
+# **👻 202130226 이진아**
 ## React 강의 전용 레포지터리
-<br>
 
 ***
 >## **🍔 0316(목) 3주차 수업**<br><br>
@@ -18,16 +17,35 @@
 >+ ***DOM(Document Object Model)*** 은 동기식으로 이를 통해 빠른 업데이트와 렌더링을 사용할 수 있음. <br>
 (Virtual DOM은 비동기식 방법으로 렌더링 함.)
 >
->![텍스트](/image/DOM.png )
+> ![텍스트](/image/DOM.png )
 >
 >+ 컴포넌트 기반의 구조(모든 페이지가 컴포넌트로 구성되어 있음) <br>
-따라서 **반복적인 작업을 줄여줌으로 생산성이 좋고 재사용성이 뛰어남.**
+따라서 **반복적인 작업을 줄여줌으로 생산성이 좋고 재사용성**이 뛰어남.
 >+ 모바일 앱 개발 가능, 메타에서 오픈소스 프로젝트로 계속 관리 중
 >+ 리액트의 단점 : 방대한 학습량, 높은 상태의 관리 복잡도
+> 
+>+ CDN <https://ko.reactjs.org/docs/cdn-links.html> <br> html 파일에  CDN방식으로 사용할 수 있도록 script파일을 갖고 옴
+> <br><br>
+> ## 실습   
+>✔ <https://ko.reactjs.org/docs/add-react-to-a-website.html>  
+>✔ index.html과 like_button.js파일 생성
+> ```
+> //like_button.js
 >
->✔ ㅇ  
->✔ ㅇ  
->✔ ㅇ  
+>function MyButton (props) {
+>    const [isClicked, setIsClicked] = React .useState(false);
+>    return React. createElement (
+>    'button' ,
+>    { onClick: () => setIsClicked(true) }
+>    , isClicked ? 'Clicked!' : 'click here!'
+>    )}
+>    const domContainer = document.querySelector('#root');
+>    ReactDOM.render (React. createElement (MyButton), domContainer); 
+>```
+> ✔ **npx create-react-app 프로젝트명** 으로 리액트 설치  
+> + 터미널에 npx create-react-app myapp 로 myapp 설치
+> + cd 명령어로 폴더에 들어간 후 npm start
+> 
 
 
 <br>
@@ -61,4 +79,5 @@
 > - ```System.out.println("Hi");```
 > - **목록 차트 만들기 →** +로 시작 후 다음 줄에 -
 > - **인용 →** > 문구
+> - **링크 →** <링크>
 > - **이미지 →** ![텍스트] (이미지경로)
