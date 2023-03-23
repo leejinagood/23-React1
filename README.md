@@ -24,7 +24,7 @@
 > 
 ><br>
 >
-> ### **실습** <br>
+> ## **실습** <br>
 >
 >```
 >import React from "react"
@@ -38,7 +38,8 @@
 >    )}
 >export default Book
 >```
->    
+>  
+> ✔︎ index.js에서 렌더링 해주기  
 > <br>
 > <br>
 
