@@ -12,7 +12,35 @@
 >6. 로컬에서 23-react1 push (소문자만)<br>
 >7. GitHub 저장소 확인 <br>
 >
-
+> **✔︎ JSX : javascript에 XML을 추가해 확장한 문법** <br>
+> + const name = <h1.>Hello,{name}</h1> <br>
+> + </> 닫힘태그가 있음 <br>
+> + jsx는 객체를 표현 : Babel<br>
+> + ✔︎ 내부적으로 XML/HTML코드를 자바스크립크로 변환<br>
+> + 리액트가 createElement함수로 표현<br>
+>
+> **장점 : 가독성이 높고 코드가 간결해짐, 보안에 강함**<br>
+> + 모든 자바스크립트 문법을 지원하고 HTML과 XML을 섞어서 사용<br>
+> 
+><br>
+>
+> ### **실습** <br>
+>
+>```
+>import React from "react"
+>import Book from "./Book"
+>
+>function Book(props){ 
+>    return ( 
+>        <div>
+>        <h1>{이 책의 이름은 ${props.book}입니다}</h1>
+>        </div>
+>    )}
+>export default Book
+>```
+>    
+> <br>
+> <br>
 
 <br>
 
@@ -61,8 +89,9 @@
 > + 터미널에 npx create-react-app myapp 로 myapp 설치
 > + cd 명령어로 폴더에 들어간 후 npm start
 ><br>
-> ![텍스트](/image/npmstart.png)
->
+> ![텍스트](/image/npmstart.png)<br>
+> <br>
+> <br>
 
 <br>
 
@@ -73,7 +102,9 @@
 >✔︎ LICENSE 파일, .gitignore파일 추가 <br>
 >✔︎ html, css, 자바스크립트란 무엇인가~
 >+ HTML(웹사이트 뼈대를 구성하는 태그들)
->+ 자바스크립트 (var, let, const...)
+>+ 자바스크립트 (var, let, const...)<br>
+> <br>
+> <br>
 
 <br>
 
@@ -81,7 +112,9 @@
 >## **🍔 0302(목) 1주차 수업**<br><br>
 >
 >✔︎ github 맛보기 <br>
->✔︎ 깃허브 회원가입, Desktop과 깃허브 연동, 임시 Repository생성
+>✔︎ 깃허브 회원가입, Desktop과 깃허브 연동, 임시 Repository생성 <br>
+> <br>
+> <br>
 
 <br>
 
@@ -96,4 +129,7 @@
 > - **목록 차트 만들기 →** +로 시작 후 다음 줄에 -
 > - **인용 →** > 문구
 > - **링크 →** <링크>
-> - **이미지 →** ![텍스트] (이미지경로)
+> - **이미지 →** ![텍스트] (이미지경로)<br>
+><br>
+> <br>
+
