@@ -9,8 +9,9 @@
 >3. 새 프로젝트 생성(23-REACT1) <br>
 >4. README.md 덮어쓰기 <br>
 >5. GitHub 저장소 삭제 <br>
->6. 로컬에서 23-REACT1 push <br>
+>6. 로컬에서 23-react1 push (소문자만)<br>
 >7. GitHub 저장소 확인 <br>
+>
 
 
 <br>
