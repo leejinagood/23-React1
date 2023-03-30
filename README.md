@@ -7,10 +7,63 @@
 >- 엘리먼트는 자바스크립트 객체의 형태로 존재<br>
 >- 컴포넌트, 속성 및 내부의 모든 children을 포함하는 일반 js객체<br>
 >- 불변성을 가지고 있음<br>
+>- 내부적으로 자바스크립트 객체를 만드는 역할을 하는 함수 : createElement()<br>
+>- **내용이 바뀔 땐 컴포넌트를 통해 새로운 엘리먼트를 생성하면 됨! 교체하는 방법으로**<br>
+>
+> **✔︎ 엘리먼트 렌더링하기**<br>
+>- Root Dom node<br>
+>
+>```
+>  const element = <h1> 안녕 리액트? </h1>
+>  ReactDom.render(element, document.getElementById('root'))
+>```
+>
+>- 렌더링 업데이트 : **tick()**<br>
 ><br>
 ><br>
 ><br>
 ><br>
+><br>
+><br>
+>
+> ## **실습** <br>
+>
+>```
+>function Button(props){
+>  return(
+>    <Button className={'bg-${props.color}'}>
+>        <b>
+>          {props.children}
+>        </b>
+>
+>    </Button>
+>  )
+>}
+>function ConfirmDialog(props){
+>  return(
+>    <div>
+>      <p>내용을 확인하셨으면 확인 버튼을 눌러주세요</p>
+>      <Button color="green">확인</Button>
+>    </div>
+>  )
+>}
+>```
+>
+>```
+>function tick(){
+>    const element = (
+>        <div>
+>            <h1>안녕, 리액트?</h1>
+>            <h2>현재시간 : {new Date().toLocaleTimeString()}</h2>
+>        </div>
+>    );
+>    
+>    // eslint-disable-next-line no-undef
+>    ReactDOM.render(element. document.getElementById('root'));
+>}
+>setInterval(tick, 1000);
+>```
+>
 ><br>
 ><br>
 
