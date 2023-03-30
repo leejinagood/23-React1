@@ -17,6 +17,7 @@
 >  const element = <h1> 안녕 리액트? </h1>
 >  ReactDom.render(element, document.getElementById('root'))
 >```
+>> ![텍스트](/image/tick.png)
 >
 >- 렌더링 업데이트 : **tick()**<br>
 ><br>
