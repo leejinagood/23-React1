@@ -40,8 +40,18 @@
 >**- 컴포넌트 종류**<br>
 >- 초기는 클래스형, Hook이 등장하면서 함수형 컴포넌트 사용<br>
 ><br>
->✔︎ 함수형 >> Function welcome(props){ return <h1> ,{props.name} </h1>; }<br>
->✔︎ 클래스형 >> Class welcome extends React:Component{ render(){ return <h1> ,{this.props.name} </h1>; }<br>
+>✔︎ 함수형 
+>
+>```
+>function welcome(props){ return <h1> ,{props.name} </h1>; }<br>
+>```
+>
+>✔︎ 클래스형 
+>
+>```
+>  Class welcome extends React:Component{ render(){ return <h1> ,{this.props.name} </h1>; }<br>
+>```
+>
 ><br>
 >
 > ## **실습** <br>
