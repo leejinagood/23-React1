@@ -20,7 +20,8 @@
 >- 렌더링 업데이트 : **tick()**<br>
 > ![텍스트](/image/tick.png)
 >
->Clock.jsx<br>
+>- **Clock.jsx**<br>
+> ![텍스트](/image/Clock.png)
 ><br>
 ><br>
 ><br>
