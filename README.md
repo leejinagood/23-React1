@@ -20,7 +20,7 @@
 >- 렌더링 업데이트 : **tick()**<br>
 > ![텍스트](/image/tick.png)
 >
-><br>
+>Clock.jsx<br>
 ><br>
 ><br>
 ><br>
@@ -63,6 +63,22 @@
 >    ReactDOM.render(element. document.getElementById('root'));
 >}
 >setInterval(tick, 1000);
+>```
+>
+>
+>```
+>import React from 'react';
+>import ReactDOM from 'react-dom';
+>
+>function Clock(props){
+>    return(
+>        <div>
+>            <h1>안녕 리액트?</h1>
+>            <h2>현재시간 : {new Date().toLocaleDateString()}</h2>
+>        </div>
+>    )
+>}
+>export default Clock;
 >```
 >
 ><br>
