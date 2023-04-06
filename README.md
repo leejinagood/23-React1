@@ -3,11 +3,53 @@
 ***
 
 >## **🍔 0406(목) 6주차 수업**<br><br>
+>**✔︎ 컴포넌트의 추출**
+>- 복잡한 컴포넌트를 쪼개서 여러개의 컴포넌트로 나눔
+>- 큰 컴포넌트에서 일부를 추출해 새로운 컴포넌트를 만드는 것<br>
+>**✔︎ Avatar**
+><br>
 >
 >
 >
 >
 >
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> ## **실습** <br>
+>
+>```js
+>import React from 'react';
+>// import userinfo from './userinfo';
+>function Comment(props){
+>    return(
+>        <div className="comment">
+>            <userinfo user={props.author} />
+>                <div className="comment-text">
+>                    {props.text}
+>                </div>
+>                <div className="comment-data">
+>                    {JSON.stringify(props.data)}
+>                </div>
+>        </div>
+>    );
+>}
+>export default Comment;
+>```
+>
+
+
+* * *
 
 >## **🍔 0330(목) 5주차 수업**<br><br>
 >**✔︎ 엘리먼트는 리액트앱의 가장 작은 빌딜 블록들**<br>
@@ -21,7 +63,7 @@
 > **✔︎ 엘리먼트 렌더링하기**<br>
 >- Root Dom node<br>
 >
->```
+>```js
 >  const element = <h1> 안녕 리액트? </h1>
 >  ReactDom.render(element, document.getElementById('root'))
 >```
@@ -49,13 +91,13 @@
 ><br>
 >✔︎ 함수형 
 >
->```
+>```js
 >function welcome(props){ return <h1> ,{props.name} </h1>; }<br>
 >```
 >
 >✔︎ 클래스형 
 >
->```
+>```js
 >  Class welcome extends React:Component{ render(){ return <h1> ,{this.props.name} </h1>; }<br>
 >```
 >
@@ -63,7 +105,7 @@
 >
 > ## **실습** <br>
 >
->```
+>```js
 >function Button(props){
 >  return(
 >    <Button className={'bg-${props.color}'}>
@@ -84,7 +126,7 @@
 >}
 >```
 >
->```
+>```js
 >function tick(){
 >    const element = (
 >        <div>
@@ -100,7 +142,7 @@
 >```
 >
 >
->```
+>```js
 >import React from 'react';
 >import ReactDOM from 'react-dom';
 >
@@ -142,7 +184,7 @@
 >
 > ## **실습** <br>
 >
->```
+>```js
 >import React from "react"
 >import Book from "./Book"
 >
@@ -189,7 +231,7 @@
 > ## 실습   
 >✔ <https://ko.reactjs.org/docs/add-react-to-a-website.html>  
 >✔ index.html과 like_button.js파일 생성
-> ```
+> ```js
 > //like_button.js
 >
 >function MyButton (props) {
