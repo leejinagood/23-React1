@@ -9,23 +9,56 @@
 >**✔︎ Avatar**
 ><br>
 >
+>![텍스트](/image/Comment.png)
+> - 컴포넌트를 반복해서 코드에 작성하면 갯수만큼 출력 됨.
+>
+>
+>```js
+>//Comment return안
+>    return (
+>        <div style={style.wrapper}>
+>          <div style={style.imageContainer}>
+>            <img src={cat} alt="" style={style.image} />
+>          </div>
+>          <div style={style.contentContainer}>
+>            <span style={style.nameText}>{props.name}</span>
+>            <span style={style.text}>{props.Comment}</span>
+>          </div>
+>        </div>
+>      );
+>```
+>
+>```js
+>//CommentList return안
+>        <div>
+>            <Comment name={"이진아"} Comment={"안녕하세요, 이진아입니다."}/>
+>            <Comment name={"이진아"} Comment={"안녕하세요, 이진아입니다."}/>
+>            <Comment name={"이진아"} Comment={"안녕하세요, 이진아입니다."}/>
+>        </div>
+>```
+>![텍스트](/image/commentlist.png)
+> ✔︎ **이미지 파일은 public 폴더 안에 넣어도 됨.** <br>
+> ✔︎ **리액트가 최종 렌더링 하는 폴더는 src가 아닌 public이기 때문.**
+><br><br>
+> ### **state와 생명주기**
+> state : 리액트 컴포넌트의 상태를 의미 (변경가능한 컴포넌트의 데이터)
+> - **state의 특징**
+> - 리액트만의 특별한 형태가 아닌, 자바스크립트의 객체이다.
+> - 함수형에서는 useState()를 사용.
+> - 수정은 setstate()함수를 사용함.
+><br>
+>✔︎ 생명주기 
+>- constructor가 실행되면서 컴포넌트가 생성
+>- 생성 직후 conponentDidMount()함수가 호출
+>- 컴포넌트가 소멸하기 전까지 여러 번 랜더링
+>- 렌더링은 props, setState, dorcceUpdate에 의해 상태가 변경
+>- 렌더링이 끝나면 conponentDidUpdate()함수 호출
 >
 >
 >
 >
 >
->
->
->
->
->
->
->
->
->
->
->
->
+><br><br><br>
 > ## **실습** <br>
 >
 >```js
@@ -45,6 +78,24 @@
 >    );
 >}
 >export default Comment;
+>```
+>
+><br>
+>
+>```js
+>//CommentList
+>import React from 'react';
+>import Comment from './Comment';
+>
+>function CommentList(props){
+>    return(
+>        <div>
+>            <Comment />
+>        </div>
+>    )
+>}
+>
+>export default CommentList;
 >```
 >
 

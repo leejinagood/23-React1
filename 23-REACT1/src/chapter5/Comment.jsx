@@ -1,22 +1,51 @@
 import React from 'react';
-// import userinfo from './userinfo';
+
+import cat from './cat.JPG';
+
 function Comment(props){
-    // return(
-    //     <div className="comment">
-    //         <userinfo user={props.author} />
-    //             <div className="comment-text">
-    //                 {props.text}
-    //             </div>
-    //             <div className="comment-data">
-    //                 {JSON.stringify(props.data)}
-    //             </div>
-    //     </div>
-    // );
-    return(
-        <div>
-            <h1>내가만든 첫 컴포넌트</h1>
+    const style={
+        wrapper: {
+            margin: 8,
+            padding: 8,
+            display: "flex",
+            flexDirection: "row",
+            border: "1px solid grey",
+            borderRadius: 16,
+        },
+        imageContainer: {},
+        image: {
+            width: 50,
+            height: 50,
+            borderRadius: 25,
+        },
+        contentContainer: {
+            marginLeft: 8,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+        },
+        nameText: {
+            color: "black",
+            fontSize: 16,
+            fontWeight: "bold",
+        },
+        commentText: {
+            color: "black",
+            fontSize: 16,
+        },
+          };
+
+    return (
+        <div style={style.wrapper}>
+          <div style={style.imageContainer}>
+            <img src={cat} alt="" style={style.image} />
+          </div>
+          <div style={style.contentContainer}>
+            <span style={style.nameText}>{props.name}</span>
+            <span style={style.text}>{props.Comment}</span>
+          </div>
         </div>
-    )
+    );
 }
 
 
