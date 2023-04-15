@@ -2,6 +2,147 @@
 ## React 강의 전용 레포지터리
 ***
 
+>## **🍔 0413(목) 7주차 수업**<br><br>
+>
+>**Hook** 
+>- 함수형 컴포넌트에서 react state와 생명주기 기능(lifecycle features)을 "연동(hook into)할 수 있게 해준다
+>
+>
+>
+>**Hook의 규칙**
+> - Hook은 무조건 최상위 레벨에서만 호출
+>
+>- React function Component의 최상위 레벨
+>- 반복문, 조건문 중첩된 함수들 안에서 Hook 호출 금지
+>- Hook은 컴포넌트가 렌더링될 때마다 매번 같은 순서로 호출
+>- 리액트가 다수의 useState Hook과 useEffect Hook 호출해서 컴포넌트 state를 올바르게 관리
+>- 리액트 함수 컴포넌트에서만 Hook을 호출
+>- 직접 만든 Custom Hook도 가능
+>- React Component에 있는 state와 관련된 모든 로직은 소스코드를 통해 명확하게 확인이 가능해야 함
+>
+>**잘못된 Hook 사용법**
+>
+>```js
+>// if문의 조건문에서 참인 경우에 useEffect Hook 호출
+>// name의 값이 빈 문자열이 되면 조건문의 값이 false가 되어 useEffect Hook이 호출되지 않음
+>function MyComponent(props) {
+>  	const [name, setName] = useState('Inje');
+>  
+>  	if (name !== '') }
+>    	useEffect(() => {
+>          	...
+>        });
+>    }
+>
+>    ...
+> }
+>// 결과적으로 렌더링될 때마다 Hook이 같은 순서대로 호출되는 것이 아니라 조건문의 결과에 따라 호출되는 >
+>```
+>
+>
+>
+>Hook이 달라지므로 잘못된 코드
+>- Hook은 최상위 레벨에서만 호출
+>
+>**eslint-plugin-react-hooks**
+> : Hook의 규칙을 따르도록 강제해주는 것
+>
+>- 리액트 컴포넌트가 Hook의 규칙을 따르는지 분석
+>- 의존성 배열이 잘못된 경우, 자동으로 경고 표시 및 고칠방법을 제안
+>
+>```js
+>const memoizedValue = useMemo(
+>	() => {
+ >   	// 연산량이 높은 작업을 수행하여 결과를 반환
+  >      return computeExpensiveValue(의존성 변수1, 의존성 변수2);
+   > },
+ >   [의존성 변수1, 의존성 변수2]
+>);
+>
+>// useMemo에서 의존성 배열에 넣은 변수들은 create 함수에 파라미터로 전달되지 않음
+>// useMemo Hook의 원래 의미가 의존성 배열에 있는 변수 중에 하나라도 변하면 create 함수를 다시 호출
+>// create 함수를 참조하는 모든 변수를 의존성 배열에 넣어주는 것이 맞음
+>
+>```
+>
+>Custom Hook 만들기
+>**여러 컴포넌트에서 반복적으로 사용되는 로직을 Hook으로 만들어 재사용**
+>
+>Custom Hook을 만들어야하는 상황
+>```js
+>// UserStatus Component, IsOnline status에 따라서 사용자의 상태 온라인인지 아닌지 테스트로 >보여주는 Component
+>import React, { useState, useEffect } from "react";
+>
+>function UserListItem(props) {
+>  const [isOnline, setIsOnline] = useState(null);
+>  
+>  useEffect(() => {
+>     function handleStatusChange(status) {
+>       	setIsOnline(status.isOnline);
+>     }
+>    
+>    ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange);
+>    return () => {
+>      	ServerAPI.unsubscribeUserStatus(props.user.id, handleStatusChange);
+>    };
+> });
+>  
+>  return (
+>      <li style={{ color: isOnline ? 'green' : 'black' }}>
+>          {props.user.name}
+>      </li>
+>	);
+>}
+>
+>```
+>
+>Custom Hook 추출하기
+>**이름이 use로 시작하고 내부에서 다른 Hook을 호출하는 하나의 자바스크립트 함수**
+>
+>중복되는 로직을 useUserStatus라는 Custom Hook 추출
+>```js
+>// 두 개의 Component에서 중복되는 로직을 추출
+>// 여기서 useUserStatus Hook의 목적은 사용자의 온라인, 오프라인 상태를 구독하는 것
+>
+>import import React, { useState, useEffect } from "react";
+>
+>function useUserStatus(userId) {
+>  	const [isOnline, setIsOnline] = useState(null);
+>  
+>  	useEffect(() => {
+>      	function handleStatusChange(status) {
+>          	setIsOnline(status.isOnline);
+>        }
+>      
+>      ServerAPI.subscribeUserStatus(userId, handleStatusChange);
+>      return () => {
+>        ServerAPI.unsubscribeUserStatus(userId, handleStatusChange);
+>      };
+>    });
+>  
+>  	return isOnline;
+>}
+>
+>// useUserStatus Hook의 파라미터로 userId를 받도록 만들고 해당 사용자가 온라인인지 오프라인지 상태를 리턴
+>
+>```
+>
+>- Custom Hook은 특별한 규칙이 없음
+>- 단순한 함수와 같음
+>- 파라미터로 무엇을 받을지, 어떤 것을 리턴할 지, 개발자가 직접 정함
+>
+>**Custom Hook 사용하기**
+>- Custom Hook의 이름은 꼭 use로 시작
+>
+>- 여러 개의 컴포넌트에서 하나의 Custom Hook을 사용할 때 컴포넌트 내부에 있는 모든 state와 efffects는 전부 분리
+>- 각 Custom Hook 호출에 대해서 분리된 state를 얻음
+>- 각 Custom Hook의 호출 또한 완전히 독립적
+>- Hook들 사이에서 데이터를 공유하는 방법
+><br>
+><br>
+
+
+* * * 
 >## **🍔 0406(목) 6주차 수업**<br><br>
 >**✔︎ 컴포넌트의 추출**
 >- 복잡한 컴포넌트를 쪼개서 여러개의 컴포넌트로 나눔
