@@ -14,7 +14,7 @@ import Accommodate from './chapter7/Accommodate';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Clock />
+    <Accommodate />
   </React.StrictMode>
 );
 
