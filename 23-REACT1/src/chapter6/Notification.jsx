@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const styles = {
     wrapper: {
@@ -15,27 +15,32 @@ const styles = {
     },
 };
 
-class Notification extends React.Component{
-    constructor(props){
+class Notification extends React.Component {
+    constructor(props) {
         super(props);
 
-        this.state={};
+        this.state = {};
     }
-    componentDidMount(){
+
+    componentDidMount() {
         console.log(`${this.props.id} componentDidMount() called.`);
     }
-    componentDidUpdate(){
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(`${this.props.id} componentDidUpdate() called.`);
     }
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         console.log(`${this.props.id} componentWillUnmount() called.`);
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <div style={styles.wrapper}>
                 <span style={styles.messageText}>{this.props.message}</span>
             </div>
         );
     }
 }
+
 export default Notification;
