@@ -11,12 +11,13 @@ import NotificationList from './chapter6/NotificationList'
 import Counter from './chapter7/Counter';
 import Accommodate from './chapter7/Accommodate';
 import Toggle from './chapter8/Toggle'
-
+import MyButton from './chapter8/MyButton'
+import ConfirmButton from './chapter8/ConfirmButton'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Toggle />
+    <ConfirmButton />
   </React.StrictMode>
 );
 
