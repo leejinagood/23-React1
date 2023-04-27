@@ -2,9 +2,132 @@
 ## React 강의 전용 레포지터리
 ***
 >## **🍔 0427(목) 9주차 수업**<br><br>
+> **이벤트 처리**
+>
+>```js
+><button onclick="activate()">
+>     Activate
+></button>
+>```
+>
+>🔽🔽🔽
+>
+>```js
+><button onClick={activate}>
+>     Activate
+></button>
+>```
+> **차이점**
+> - onclick -> onClick
+> - 전달하려는 함수는 문자열에 그대로 전달
+>
+>✔︎ 이벤트가 발생했을 때 해당 이벤트를 처리하는 함수 "이벤트 핸들러(Event Handler)"
+>
+><br>
+>
+>```js
+>//Toggle
+>import React, { useState } from "react";
+>
+>class Toggle extends React.Component{
+>    constructor(props){
+>        super(props);
+>        this.state = {isToggleOn: true};
+>        this.handleClick = this.handleClick.bind(this);
+>    }
+>    handleClick(){
+>        this.setState(prevState => ({
+>            isToggleOn: !prevState.isToggleOn
+>        }));
+>    }
+>    render(){
+>        return(
+>            <button onClick={this.handleClick}>
+>                {this.state.isToggleOn ? '켜짐' : '꺼짐'}
+>            </button>
+>        );
+>    }
+>}
+> export default Toggle;
+>```
+> **클래스 컴포넌트는 사용하지 않기에 참고만 하자**
+><br>
+>
+>```js
+>function Toggle(props){
+>    const [isToggleOn, setIsToggleOn] = useState(true);
+>    //방법1 함수 안에 함수로 정의
+>    function handleClick(){
+>        setIsToggleOn((isToggleOn) => !isToggleOn);
+>    }
+>    //방법2 arrow function을 사용하여 정의
+>    const handleClick = () => {
+>        setIsToggleOn((isToggleOn) => !isToggleOn);
+>    }
+>    return(
+>        <button onClick={handleClick}>
+>            {isToggleOn ? '켜짐' : '꺼짐'}
+>        </button>
+>    );
+>}
+>export default Toggle;
+>```
+> **✔︎ 보통은 화살표 함수를 많이 사용함.**
+>
+><br>
+>
+>- 함수를 정의할 때는 파라미터(Parameter)혹은 매개변수
+>- 함수를 사용할 땐 아귀먼트 (Argument)혹은 인자라고 부름 < 이벤트 핸들러에 매개변수를 전달해야 하는 경우가 많음.
+>
+>```js
+>//클래스형
+><button onClick={(event) => this.deleteItem(id, event)}> 삭제하기</button>
+><button onClick={this.deleteItem.bind(this, id)}> 삭제하기 </button>
+>```
+>
+>```js
+>//MyButton
+>function MyButton(props){
+>    const handleDelete = (id, event) => {
+>        console.log(id, event.target);
+>    }
+>    return(
+>        <button onClick={(event) => this.deleteItem(1, event)}> 삭제하기</button>
+>    )
+>}
+>export default MyButton;
+>```
+>
+>```js
+>//ConfirmButton
+>function ConfirmButton(props){
+>    const[isConfirmed, setIsConfirmed] = useState(false);
+>    const handleConfirm = () => {
+>        setIsConfirmed((prevIsConfiremd) => !prevIsConfiremd);
+>    };
+>    return(
+>        <button onClick={handleConfirm} disabled={isConfirmed}>
+>        {isConfirmed ? '확인 됨' : '확인하기'}
+>    </button>
+>    )
+>}
+>```
 >
 >
 >
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+
 
 >## **🍔 0413(목) 7주차 수업**<br><br>
 >
