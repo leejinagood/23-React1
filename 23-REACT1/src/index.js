@@ -17,7 +17,7 @@ import ConfirmButton from './chapter8/ConfirmButton'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ConfirmButton />
+    <Toggle />
   </React.StrictMode>
 );
 

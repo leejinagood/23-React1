@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function ConfirmButton(props){
     const[isConfirmed, setIsConfirmed] = useState(false);
-    const handleConfirm = () => {
+    const handleConfirm = () => { //화살표 함수와 대입연산자
         setIsConfirmed((prevIsConfiremd) => !prevIsConfiremd);
     };
     return(

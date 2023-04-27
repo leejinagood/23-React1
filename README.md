@@ -2,7 +2,7 @@
 ## React 강의 전용 레포지터리
 ***
 >## **🍔 0427(목) 9주차 수업**<br><br>
-> **이벤트 처리**
+> **✔︎ 이벤트 처리**
 >
 >```js
 ><button onclick="activate()">
@@ -51,6 +51,10 @@
 > export default Toggle;
 >```
 > **클래스 컴포넌트는 사용하지 않기에 참고만 하자**
+>
+>![텍스트](/image/Toggle.png)
+>![텍스트](/image/Toggle2.png)
+>
 ><br>
 >
 >```js
@@ -113,6 +117,64 @@
 >}
 >```
 >
+>![텍스트](/image/ConfirmButton.png)
+>![텍스트](/image/ConfirmButton2.png)
+><br> <br>
+>
+>**✔︎ 조건부 렌더링**
+>- props로 전달받은 isLoggedln 이 true이면 UseGreeting, false면 GuestGreeting
+>
+>```js
+>function Greeting(props){
+>  const isLoggedln = props.isLoggedln;
+>  is(isLoggedln){
+>    return <UseGreeting />;
+>  }
+>  return < GuestGreeting />;
+>}
+>```
+>
+> **✔︎ 렌더링 해야 될 컴포넌트를 변수처럼 사용하는 방법이 엘리먼트 변수**
+>
+>```js
+>  let button;
+>  if(isLoggedln){
+>    button = <LoginButton onClick={handleLogoutClick} />;
+>  }else {
+>    bitton = <LoginButton onClick={handleLoginClick} />;
+>  }
+>  return (
+>    <div>
+>      <Greeting isLoggedln={isLoggedln} />
+>      {button}
+>    </div>
+>  )
+>```
+>
+> **인라인 조건**
+>
+>✔︎ 인라인 if
+>- if문을 사용하지 않고 동일한 효과를 내기 위해 && 논리 연산자를 사용
+>- &&는 and연산자로 모든 조건이 참일 때, 참
+>```js
+>  {unreadMessages.length > 0 && 
+>    <h2>
+>      현재 {unreadMessages.length}개의 읽지 않은 메세지가 있습니다.
+>    </h2>
+>  }
+>```
+>
+>✔︎ 인라인 else if
+> - 삼항 연산자 사용 > 조건문 ? 참일경우 : 거짓일경우
+>
+>```js
+>function UserState(props){
+>  return(
+>    <div>
+>      이 사용자는 현재 <b>{props.isLoggedIn ? '로그인' : '로그인 하지 않은'}</b> 상태입니다. 
+>    </div>
+>   )}
+>```
 >
 >
 >
@@ -126,9 +188,9 @@
 >
 >
 >
->
+><br>
 
-
+* * * 
 >## **🍔 0413(목) 7주차 수업**<br><br>
 >
 >**Hook** 
