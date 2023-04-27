@@ -176,17 +176,43 @@
 >   )}
 >```
 >
+>**✔︎ 컴포넌트 렌더링 막기**
+>
+>```js
+>  function WarningBanner(props){
+>    if (!props.warning){
+>      return null;
+>    }
+>    return(
+>      <div>경고!</div>
+>    )
+>  }
+>```
 >
 >
+>```js
+>//LoginControl
+>function LoginControl(props) {
+>  const [isLoggedln, setIsLoggedln] = useState(false);
+>  const handleClickLogin = () => {
+>    setIsLoggedln(true);
+>  };
+>  const handleClickLogout = () => {
+>    setIsLoggedln(false);
+>  };
+>  return (
+>    <>
+>      {isLoggedln && <span style={styles.greeting}>환영합니다!</span>}
+>      <button onClick={isLoggedln ? handleClickLogout : handleClickLogin}>
+>        {isLoggedln ? '로그아웃' : '로그인'}
+>      </button>
+>    </>
+>  );
+>}
+>``` 
 >
->
->
->
->
->
->
->
->
+>![텍스트](/image/Loggined1.png)
+>![텍스트](/image/Loggined2.png)
 >
 ><br>
 

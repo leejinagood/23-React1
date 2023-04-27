@@ -13,11 +13,12 @@ import Accommodate from './chapter7/Accommodate';
 import Toggle from './chapter8/Toggle'
 import MyButton from './chapter8/MyButton'
 import ConfirmButton from './chapter8/ConfirmButton'
+import LoginControl from './chapter9/LoginControl'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Toggle />
+    <LoginControl />
   </React.StrictMode>
 );
 
