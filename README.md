@@ -1,6 +1,132 @@
 # **👻 202130226 이진아**
 ## React 강의 전용 레포지터리
 ***
+>## **🍔 0504(목) 10주차 수업**<br><br>
+>**✔︎ 리스트** <br>
+> - 순서대로 나열하는 배열 형태 목록.
+> - 자바스크립트 변수, 객체를 하나의 변수로 묶어 놓은 것
+>
+> const numbers = [1, 2, 3, 4, 5];
+> **✔︎ 키**
+> - 각각의 고유값을 가져 각 객체나 아이템을 구분할 수 있는 값을 의미
+> 
+> **✔︎ 다수의 컴포넌트 렌더링**
+>반복되는 컴포넌트를 표현하는 렌더링 과정 중 하나씩 입력하는 것은 비효율적이며 동적인 화면의 경우 구현에 어려움이 존재한다.<br><br>
+> 이 경우 사용하는 것? map() 함수 
+> - 배열에 들어있는 변수를 처리한 뒤 리턴하여 하나씩 짝 지어줌
+>
+>map 함수를 사용하는 코드
+>
+>
+>```js
+>// #1
+>const numbers = [1, 2, 3, 4, 5];
+>const listItems = numbers.map((number) =>
+>  <li>{number}</li>
+>);
+>      
+>// #2
+>ReactDOM.render(
+>  <ul>{listItems}</ul>,
+>  document.getElementById('root')
+>);
+>```
+>#1.
+> jsx의 경우 중괄호로 js 코드 삽입이 가능하기 때문에 numbers에 있는 각각의 값을 엘리먼트로 갖게 된다.
+>
+>#2.
+>출력시 listItems를 불러오며 listItem은 numbers 값을 불러오기 때문에 리스트로 1~5의 글머리 기호 목록이 출력된다.
+>
+><br>
+>
+>**✔︎ list - Key 관계**
+>
+>- 리스트에서 아이템을 구분하기 위한 고유한 문자열.
+>이를 이용하여 아이템의 추가, 제거등을 구분할 때 사용한다.
+>
+>- 리스트 아이템에는 키가 있어야 한다. (없을 경우 경고 문구 출력)
+>
+>✔︎ 리액트에서의 키의 값은 같은 리스트의 엘리먼트 사이에서 고유하면 된다.<br>
+>✔︎ 3-1. 키 값으로 숫자를 사용한 경우
+>- 숫자가 중복될 경우 키 값도 중복되어 고유한 값이 되지 않는다. ➡ 경고 메세지 출력 <br>
+>
+>✔︎ 3-2. 키 값으로 id 사용, 인덱스 값 사용
+>- 현재 아이템의 인덱스 값을 부여한다. 단 배열 등 순서 변경이 가능한 경우 성능 저하, 오류 발생 (state 관련) 등의 문제가 발생 할 수 있다.
+고유 id가 없을 경우에 사용하는 것이 좋으며 명시적으로 키 값을 부여하지 않으면 인덱스 값을 키 값으로 사용한다.
+>
+>**map()함수에서는 인자로 key가 필요하다**
+>
+>```js
+>//Singup.jsx
+>function SignUp(props) {
+>    const [name, setName] = useState("");
+>    const [gender, setGender] = useState("남자");
+ >   const handleChangeName = (event) => {
+  >      setName(event.target.value);
+   > };
+    >const handleChangeGender = (event) => {
+>        setGender(event.target.value);
+>    };
+ >   const handleSubmit = (event) => {
+  >      alert(`이름 : ${name}, 성별 : ${gender}`);
+   >     event.preventDefault();
+    >};
+>    return (
+ >       <form onSubmit={handleSubmit}>
+  >          <label>
+   >             이름 :
+    >            <input type="text" value={name} onChange={handleChangeName} />
+    >        </label>
+     >       <label>
+      >          성별 :
+       >         <select value={gender} onChange={handleChangeGender}>
+  >                  <option value="남자">남자</option>
+   >                 <option value="여자">여자</option>
+    >            </select>
+     >       </label>
+      >      <button type="submit">제출</button>
+     >   </form>
+    >)
+>}
+>```
+>![텍스트](/image/Singup1.png)
+>![텍스트](/image/Singup2.png)
+>
+><br>
+>
+>```js
+>//AttendanceBook.jsx
+>const students = [
+>    {id: 1,
+>        name: "이진아",},
+>    {id: 2,
+>        name: "리진아",},
+>    {id: 3,
+>        name: "진진자라",},
+>    {id: 4,
+>        name: "야옹",},
+>];
+>function AttendanceBook(props) {
+>    return (
+>        <ul>
+>            {students.map((student) => {
+>                return <li key = {student.id}>{student.name}</li>;
+>            })}
+>        </ul>
+>    );
+>}
+>```
+>
+>![텍스트](/image/AttendanceBook.png)
+>
+><br>
+
+
+
+
+
+
+* * *
 >## **🍔 0427(목) 9주차 수업**<br><br>
 > **✔︎ 이벤트 처리**
 >

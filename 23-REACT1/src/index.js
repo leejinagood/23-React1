@@ -14,11 +14,13 @@ import Toggle from './chapter8/Toggle'
 import MyButton from './chapter8/MyButton'
 import ConfirmButton from './chapter8/ConfirmButton'
 import LoginControl from './chapter9/LoginControl'
+import SignUp from './chapter10/SignUp';
+import AttendanceBook from './chapter10/AttendanceBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LoginControl />
+    <AttendanceBook />
   </React.StrictMode>
 );
 
