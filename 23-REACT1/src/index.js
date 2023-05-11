@@ -16,11 +16,12 @@ import ConfirmButton from './chapter8/ConfirmButton'
 import LoginControl from './chapter9/LoginControl'
 import SignUp from './chapter11/SignUp';
 import AttendanceBook from './chapter10/AttendanceBook';
+import Calculator from './chapter12/Calculator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AttendanceBook />
+    <Calculator />
   </React.StrictMode>
 );
 

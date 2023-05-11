@@ -3,6 +3,100 @@
 ***
 >## **🍔 0511(목) 11주차 수업**<br><br>
 >
+>**✔︎ Shared State**
+>- 공유 state로 어떤 컴포넌트의 state에서 데이터를 여러 하위 컴포넌트에서 공통적으로 사용할 수 있도록 하는 것을 의미한다.
+>
+>- 부모 컴포넌트의 값이 자식 컴포넌트로 이동하여 자식 컴포넌트의 로직을 수행할 수 있도록 하는 것.
+>- 자식 컴포넌트는 각각의 값을 갖지 않고 부모 컴포넌트의 값을 공유받기만 하면 된다.
+>
+>
+>```js
+>//TemperatureInput.jsx
+>const scaleNames = {
+>    c: "섭씨",
+>    f: "화씨",
+>};
+>function TemperatureInput(props) {
+>    const handleChange = (event) => {
+>        props.onTemperatureChange(event.target.value);
+>    };
+>    return (
+>        <fieldset>
+>            <legend>
+>                온도를 입력해주세요(단위:{scaleNames[props.scale]}):
+>            </legend>
+>            <input value={props.temperature} onChange={handleChange} />
+>        </fieldset>
+>    );
+>}
+>```
+>
+>```js
+>//Calculator
+>function BoilingVerdict(props) {
+>    if (props.celsius >= 100) {
+>        return <p>물이 끓습니다.</p>;
+>    }
+>    return <p>물이 끓지 않습니다.</p>;
+>}
+>function toCelsius(fahrenheit) {
+>    return ((fahrenheit - 32) * 5) / 9;
+>}
+>function toFahrenheit(celsius) {
+>    return (celsius * 9) / 5 + 32;
+>}
+>function tryConvert(temperature, convert) {
+>    const input = parseFloat(temperature);
+>    if (Number.isNaN(input)) {
+>        return "";
+>    }
+>    const output = convert(input);
+>    const rounded = Math.round(output * 1000) / 1000;
+>    return rounded.toString();
+>}
+>function Calculator(props) {
+>    const [temperature, setTemperature] = useState("");
+>    const [scale, setScale] = useState("c");
+>
+>    const handleCelsiusChange = (temperature) => {
+>        setTemperature(temperature);
+>        setScale("c");
+>    };
+>    const handleFahrenheitChange = (temperature) => {
+>        setTemperature(temperature);
+>        setScale("f");
+>    };
+>    const celsius =
+>        scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
+>    const fahrenheit =
+>        scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
+>
+>    return (
+>        <div>
+>            <TemperatureInput
+>                scale="c"
+>                temperature={celsius}
+>                onTemperatureChange={handleCelsiusChange}
+>            />
+>            <TemperatureInput
+>                scale="f"
+>                temperature={fahrenheit}
+>                onTemperatureChange={handleFahrenheitChange}
+>            />
+>            <BoilingVerdict celsius={parseFloat(celsius)} />
+>        </div>
+>    );
+>}
+>```
+>
+>![텍스트](/image/Tem.png)
+>
+>![텍스트](/image/tem1.png)
+>
+> ✔︎ 100도 넘는 온도를 입력하면 물이 끓음
+>
+>
+>
 >
 >
 ><br>
@@ -14,7 +108,7 @@
 > - 순서대로 나열하는 배열 형태 목록.
 > - 자바스크립트 변수, 객체를 하나의 변수로 묶어 놓은 것
 >
-> const numbers = [1, 2, 3, 4, 5];
+> const numbers = [1, 2, 3, 4, 5]; <br>
 > **✔︎ 키**
 > - 각각의 고유값을 가져 각 객체나 아이템을 구분할 수 있는 값을 의미
 > 
