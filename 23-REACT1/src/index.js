@@ -29,3 +29,64 @@ root.render(
 );
 
 reportWebVitals();
+
+
+
+// >
+// >
+// >
+// >
+// >
+// >
+// >
+// >
+// >
+// >
+// >```js
+// >//DarkOrLight
+// >function DarkOrLight(props) {
+// >    const [theme, setTheme] = useState("light");
+// >    const toggleTheme = useCallback(() => {
+// >        if (theme == "light") {
+// >            setTheme("dark");
+// >        } else if (theme == "dark") {
+// >            setTheme("light");
+// >        }
+// >    }, [theme]);
+// >    return (
+// >        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+// >            <MainContent />
+// >        </ThemeContext.Provider>
+// >    );
+// >}
+// >```
+// >
+// >```js
+// >//MainContent
+// >function MainContent(props) {
+// >    const { theme, toggleTheme } = useContext(ThemeContext);
+// >    return (
+// >        <div
+// >            style={{
+// >                width: "100vw",
+// >                height: "100vh",
+// >                padding: "1.5rem",
+// >                backgroundColor: theme == "light" ? "white" : "black",
+// >                color: theme == "light" ? "black" : "white",
+// >            }}
+// >        >
+// >            <p>안녕하세요, 테마 변경이 가능한 웹사이트 입니다.</p>
+// >            <button onClick={toggleTheme}>테마 변경</button>
+// >        </div>
+// >    );
+// >}
+// >```
+// >
+// >```js
+// >//ThemeContext
+// >const ThemeContext = React.createContext();
+// >ThemeContext.displayName = "ThemeContext";
+// >```
+// >🔽🔽
+// >![텍스트](/image/theme.png)
+// >![텍스트](/image/theme2.png)

@@ -115,65 +115,23 @@
 >- props를 통해 데이터를 전달하는 기존 방식은 실제 데이타를 필요로 하는 컴포넌트까지의 깊이가 깊어질 수록 복잡해지고 반복적인 코드를 작성해야 하기 때문에 가독성이 떨어지고 비효율적임.
 >- 이때 컨텍스트를 사용하여 깔끔하게 개선
 >
+> **✔︎ React.createContext**
+>- 컨텍스트를 생성하기 위한 함수로 파라미터에는 기본값을 넣어주면 됨.
+>- 하위 컴포넌트는 가장 가까운 상위 레벨의 provider로부터 받아옴
 >
->```js
->//DarkOrLight
->function DarkOrLight(props) {
->    const [theme, setTheme] = useState("light");
->    const toggleTheme = useCallback(() => {
->        if (theme == "light") {
->            setTheme("dark");
->        } else if (theme == "dark") {
->            setTheme("light");
->        }
->    }, [theme]);
->    return (
->        <ThemeContext.Provider value={{ theme, toggleTheme }}>
->            <MainContent />
->        </ThemeContext.Provider>
->    );
->}
->```
+>**✔︎ Context.Provider**
+>- 하위 컴포넌트들을 감싸즈면 모든 하위 컴포넌트들이 해당 컨텍스트의 데이터에 접근할 수 있다.
+>- value라는 prop이 있고 이것은 provider 컴포넌트 하위에 있는 컴포넌트에 전달 됨
+>- 하위 컴포넌트를 consumer라고 함.
 >
->```js
->//MainContent
->function MainContent(props) {
->    const { theme, toggleTheme } = useContext(ThemeContext);
->    return (
->        <div
->            style={{
->                width: "100vw",
->                height: "100vh",
->                padding: "1.5rem",
->                backgroundColor: theme == "light" ? "white" : "black",
->                color: theme == "light" ? "black" : "white",
->            }}
->        >
->            <p>안녕하세요, 테마 변경이 가능한 웹사이트 입니다.</p>
->            <button onClick={toggleTheme}>테마 변경</button>
->        </div>
->    );
->}
->```
+>**✔︎ Context.Consumer**
+>- 함수형 컴포넌트에서 컨텍스트를 구독할 수 있음
+>- 컴포넌트의 자식으로 함구가 올 수 있는데 이것을 funtion as a child라고 함
+>- 자식으로 들어간 함수가 컨텍스트의 value 값을 받아서 리액트의 노드로 리턴
 >
->```js
->//ThemeContext
->const ThemeContext = React.createContext();
->ThemeContext.displayName = "ThemeContext";
->```
->🔽🔽
->![텍스트](/image/theme.png)
->![텍스트](/image/theme2.png)
->
->
->
->
->
->
->
->
->
->
+>**✔︎ Context.displayName**
+>- 컨텍스트 객체는 displayName이라는 문자열 속성을 갖음
+>- 크롬의 리액트 개발자 도구에서는 컨텍스트 Provider이나 Consumer를 표시할 때 displayName을 함께 공유
 >
 >
 ><br>
