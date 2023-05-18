@@ -86,7 +86,7 @@
 >    );
 >}
 >```
->
+>🔽🔽
 >![텍스트](/image/card.png)
 >
 >```js
@@ -100,7 +100,71 @@
 >    );
 >}
 >```
+>🔽🔽
 >![텍스트](/image/card2.png)
+>
+><br>
+>
+>### 컨텍스트
+>
+>- 리액트 컴포넌트들 사이에서 데이터를 기존의 props를 통해 전달하는 방식대신 '컴포넌트 트리를 통해 곧바로 컴포넌트에 전달하는 새로운 방식'을 제곧
+>- 이것을 통해 어떤 컴포넌트라도 쉽게 데이터에 접근할 수 있음.
+>- 컨텐스트를 사용하면 일일이 props로 전달할 필요 없이 그림처럼 데이터를 필요로 하는 컴포넌트에 곧바로 데이터를 전달할 수 있음.
+>
+>![텍스트](/image/context.png)
+>- props를 통해 데이터를 전달하는 기존 방식은 실제 데이타를 필요로 하는 컴포넌트까지의 깊이가 깊어질 수록 복잡해지고 반복적인 코드를 작성해야 하기 때문에 가독성이 떨어지고 비효율적임.
+>- 이때 컨텍스트를 사용하여 깔끔하게 개선
+>
+>
+>```js
+>//DarkOrLight
+>function DarkOrLight(props) {
+>    const [theme, setTheme] = useState("light");
+>    const toggleTheme = useCallback(() => {
+>        if (theme == "light") {
+>            setTheme("dark");
+>        } else if (theme == "dark") {
+>            setTheme("light");
+>        }
+>    }, [theme]);
+>    return (
+>        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+>            <MainContent />
+>        </ThemeContext.Provider>
+>    );
+>}
+>```
+>
+>```js
+>//MainContent
+>function MainContent(props) {
+>    const { theme, toggleTheme } = useContext(ThemeContext);
+>    return (
+>        <div
+>            style={{
+>                width: "100vw",
+>                height: "100vh",
+>                padding: "1.5rem",
+>                backgroundColor: theme == "light" ? "white" : "black",
+>                color: theme == "light" ? "black" : "white",
+>            }}
+>        >
+>            <p>안녕하세요, 테마 변경이 가능한 웹사이트 입니다.</p>
+>            <button onClick={toggleTheme}>테마 변경</button>
+>        </div>
+>    );
+>}
+>```
+>
+>```js
+>//ThemeContext
+>const ThemeContext = React.createContext();
+>ThemeContext.displayName = "ThemeContext";
+>```
+>🔽🔽
+>![텍스트](/image/theme.png)
+>![텍스트](/image/theme2.png)
+>
 >
 >
 >
