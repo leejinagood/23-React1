@@ -4,6 +4,114 @@
 
 >## **🍔 0518(목) 12주차 수업**<br><br>
 >
+> ### 합성 : 여러개의 컴포넌트를 합쳐서 새로운 컴포넌트를 만드는 것
+><br>
+>✔︎ Containment
+>- 특정 컴포넌트가 하위 컴포넌트를 포함하는 형태의 합성 방법
+>- 엘리먼트가 들어올 지 미리 예상X, Sidebar와 Dialog같은 컴포넌트
+>- children prop를 사용하여 자식 엘리먼트를 출력에 그대로 전달하는 게 좋음
+>
+>```js 
+>//JSX를 이용한 props전달 간단한 방법
+> const jsxElement = <h1 className= "jsx">JSX Element</h1>
+>```
+>
+>```js
+>//리액트 기능을 사용한 방법
+>const reactElement = React.createElement(
+>  'h1',
+>  {className: 'obj'},
+>  'OBJ Element'
+>)
+>```
+>
+>✔︎ Specialization
+>- 범용적인 개념을 구볋이 되게 구체화하는 것을 특수화라고 함
+>- 객체지향 언어에서는 상속을 사용하여 특수화를 구현함.
+>- 리액트에서는 합성을 사용하여 특수화를 구현
+>- 특수화는 범용적으로 쓸 수 있는 컴포넌트를 만들어 놓고 이를 특수한 목적으로 사용하는 합성 방식
+>```js
+>function Dialog(props){
+>  return(
+>    <FancyBorder color="blue">
+>      <h1>
+>        {props.title}
+>      </h1>
+>      <p>
+>       {props.message}
+>      </p>
+>    </FancyBorder>
+>  );
+>}
+>funtion WelcomeDialog(props){
+>  return(
+>    <Dialog 
+>      title= "어서오세요"
+>      message= "우리 사이트에 방문하신 것을 환영합니다" 
+>    />
+>  )
+>}
+>```
+>
+>✔︎ Containment와 Specialization을 같이 사용하기
+>- Containment는 props.children을 사용하고 Specialization을 위해 직접 정의한 props를 사용
+><br>
+>
+>### 상속 : 합성과 대비되는 개념
+>- 자식 클래스는 부모 클래스가 가진 변수나 함수 등의 속성을 모두 갖게되는 개념
+>- 그러나 리액트에서는 상속보다는 합성을 통해 새로운 컴포넌트를 생성함.
+>
+><br>
+> **실습**
+>- card컴포넌트를 만들기. 하위 컴포넌트를 삼싸서 카드 형태로 보여주는 컴포넌트
+>- card컴포넌트를 사용해서 스페셜카드(범용)를 생성 - profilecard
+>
+>```js
+>// Card.jsx
+>function Card(props) {
+>    const { title, backgroundColor, children } = props;
+>    return (
+>        <div
+>            style={{
+>                margin: 8,
+>                padding: 8,
+>                borderRadius: 8,
+>                boxShadow: "0px 0px 4px grey",
+>                backgroundColor: backgroundColor || "white",
+>            }}
+>        >
+>            {title && <h1>{title}</h1>}
+>            {children}
+>        </div>
+>    );
+>}
+>```
+>
+>![텍스트](/image/card.png)
+>
+>```js
+>//ProfileCard.jsx
+>function ProfileCard(props) {
+>    return (
+>        <Card title="Jina Lee" backgroundColor="#4ea04e">
+>            <p>안녕하세요, 나는 이진아</p>
+>            <p>저는 리액트를 사용해서 개발하고 있습니다.</p>
+>        </Card>
+>    );
+>}
+>```
+>![텍스트](/image/card2.png)
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
 ><br>
 * * *
 >## **🍔 0511(목) 11주차 수업**<br><br>
