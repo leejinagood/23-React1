@@ -20,11 +20,12 @@ import Calculator from './chapter12/Calculator';
 import ProfileCard from './chapter13/ProfileCard'
 import Card from './chapter13/Card';
 import DarkOrLight from './chapter14/DarkOrLight';
+import Blocks from './chapter15/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DarkOrLight />
+    <Blocks />
   </React.StrictMode>
 );
 
