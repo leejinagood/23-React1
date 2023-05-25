@@ -2,6 +2,80 @@
 ## React 강의 전용 레포지터리
 ***
 
+>## **🍔 0525(목) 13주차 수업**<br><br>
+>
+>✔︎ 여러개의 컨텍스트 사용하기
+>- 동시에 사용하려면 Context.Provider사용
+>- 두 개 이상 컨텍스트 값이 자주 함께 사용될 경우 모든 값을 한 번에 제공해주는 별도의 render prop컴포넌트를 직접 만드는 것을 고려
+>
+>✔︎ useContext
+>- 컨텍스트를 사용하기 위해 매번 Consumer 컴포넌트로 감싸는 것 보다 Hook을 사용하는 것이 좋음
+>- useContext() 훅은 React.createContext() 함수 호출로 생선된 컨텍스트 객체를 인자로 받아서 현재 컨텍스트 값을 리턴한다.
+>- useContext() 훅을 사용할 때는 파라미터로 컨텍스트 객체를 넣어줘야 됨.
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>```js
+>//DarkOrLight
+>function DarkOrLight(props) {
+>    const [theme, setTheme] = useState("light");
+>    const toggleTheme = useCallback(() => {
+>        if (theme == "light") {
+>            setTheme("dark");
+>        } else if (theme == "dark") {
+>            setTheme("light");
+>        }
+>    }, [theme]);
+>    return (
+>        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+>            <MainContent />
+>        </ThemeContext.Provider>
+>    );
+>}
+>```
+>
+>```js
+>//MainContent
+>function MainContent(props) {
+>    const { theme, toggleTheme } = useContext(ThemeContext);
+>    return (
+>        <div
+>            style={{
+>                width: "100vw",
+>                height: "100vh",
+>                padding: "1.5rem",
+>                backgroundColor: theme == "light" ? "white" : "black",
+>                color: theme == "light" ? "black" : "white",
+>            }}
+>        >
+>            <p>안녕하세요, 테마 변경이 가능한 웹사이트 입니다.</p>
+>            <button onClick={toggleTheme}>테마 변경</button>
+>        </div>
+>    );
+>}
+>```
+>
+>```js
+>//ThemeContext
+>const ThemeContext = React.createContext();
+>ThemeContext.displayName = "ThemeContext";
+>```
+>🔽🔽
+>![텍스트](/image/theme.png)
+>![텍스트](/image/theme2.png)
+>
+
+
+* * *
 >## **🍔 0518(목) 12주차 수업**<br><br>
 >
 > ### 합성 : 여러개의 컴포넌트를 합쳐서 새로운 컴포넌트를 만드는 것
