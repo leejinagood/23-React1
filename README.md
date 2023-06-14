@@ -3,9 +3,7 @@
 ***
 
 >## **🍔 0601(목) 14주차 수업**<br><br>
->cs실습
->```js// styled-components 를 활용하여 style 요소를 적용한 콤포넌트 활용
->// npm install styled-components 후 실행
+>```js
 >import React from "react";
 >import styled from "styled-components";
 >
