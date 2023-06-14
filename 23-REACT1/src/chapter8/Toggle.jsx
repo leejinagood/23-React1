@@ -1,42 +1,20 @@
-// import React, { useState } from "react";
+import React, { useState } from "react"; //useState훅 가져오는 
 
-// class Toggle extends React.Component{
-//     constructor(props){
-//         super(props);
-//         this.state = {isToggleOn: true};
-//         this.handleClick = this.handleClick.bind(this);
-//     }
-//     handleClick(){
-//         this.setState(prevState => ({
-//             isToggleOn: !prevState.isToggleOn
-//         }));
-//     }
-//     render(){
-//         return(
-//             <button onClick={this.handleClick}>
-//                 {this.state.isToggleOn ? '켜짐' : '꺼짐'}
-//             </button>
-//         );
-//     }
-// }
-// export default Toggle;
+function Toggle(props){ //props를 매개변수로 받음
 
-import React, { useState } from "react";
-
-function Toggle(props){
     const [isToggleOn, setIsToggleOn] = useState(true);
-    //방법1 함수 안에 함수로 정의
-    // function handleClick(){
-    //     setIsToggleOn((isToggleOn) => !isToggleOn);
-    // }
-    //방법2 arrow function을 사용하여 정의
-    const handleClick = () => {
+    //isToggleOn이라는 상태 변수와 setIsToggleOn이라는 상태 변경 함수 선언
+    //isToggleOn 초기 값은 true
+
+    const handleClick = () => { //handleClick버튼을 클릭했을 때 호출되는 이벤트 핸들러
         setIsToggleOn((isToggleOn) => !isToggleOn);
     }
     return(
-        <button onClick={handleClick}>
+        // isToggleOn 값에 따라 버튼에 표시되는 텍스트를 조건부로 설정
+        <button onClick={handleClick}> 
             {isToggleOn ? '켜짐' : '꺼짐'}
         </button>
     );
 }
-export default Toggle;
+export default Toggle; 
+//컴포넌트를 외부에서 사용할 수 있도록 내보내는 구문
