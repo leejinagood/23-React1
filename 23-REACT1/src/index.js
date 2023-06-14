@@ -10,22 +10,21 @@ import CommentList from './chapter5/CommentList';
 import NotificationList from './chapter6/NotificationList'
 import Counter from './chapter7/Counter';
 import Accommodate from './chapter7/Accommodate';
+
 import Toggle from './chapter8/Toggle'
 import MyButton from './chapter8/MyButton'
 import ConfirmButton from './chapter8/ConfirmButton'
 import LoginControl from './chapter9/LoginControl'
-import SignUp from './chapter11/SignUp';
 import AttendanceBook from './chapter10/AttendanceBook';
+import SignUp from './chapter11/SignUp';
 import Calculator from './chapter12/Calculator';
 import ProfileCard from './chapter13/ProfileCard'
-import Card from './chapter13/Card';
 import DarkOrLight from './chapter14/DarkOrLight';
-import Blocks from './chapter15/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ConfirmButton />
+    <DarkOrLight />
   </React.StrictMode>
 );
 
